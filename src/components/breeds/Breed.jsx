@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import noImage from './noImageAvailable.png';
+import { ThemeContext } from '../../contexts/Theme.context';
 
 const Breed = ({
   name,
@@ -9,8 +11,10 @@ const Breed = ({
   lifespan,
   temperament,
 }) => {
+  const { oppositeTheme } = useContext(ThemeContext)
+
   return (
-    <div className="card">
+    <div className={`card text-bg-${oppositeTheme}`}>
       <img
         className="card-img-top image-thumbnail"
         alt={name}
